@@ -2,7 +2,9 @@ package in.aakashsinha.billingsimple.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import in.aakashsinha.billingsimple.entity.Billing;
+import in.aakashsinha.billingsimple.entity.Customer;
 import in.aakashsinha.billingsimple.model.BillingModel;
+import in.aakashsinha.billingsimple.model.CustomerModel;
 import in.aakashsinha.billingsimple.repository.BillingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,21 +18,26 @@ public class BillingServiceImpl implements BillingService {
     @Autowired
     BillingRepository billingRepository;
 
+    @Autowired
+    CustomerService customerService;
+
     @Override
     public Billing addBilling(BillingModel billingModel) {
+
         ObjectMapper objectMapper = new ObjectMapper();
         Billing billing = objectMapper.convertValue(billingModel, Billing.class);
 
-        /*
+         /*
         retrieve values from body
         check if customer exists, if true -> push bill id to customer bill list
-
         else
-
         create new customer then push bill id;
-
-
          */
+        if(!customerService.checkCustomerExist(billingModel.getCustomer().getPhone())){
+//            CustomerModel customerModel = objectMapper.convertValue(billingModel.getCustomer(), Customer.class);
+//            boolean created = customerService.createCustomer();
+        }
+
 
         return billingRepository.save(billing);
     }
