@@ -1,10 +1,17 @@
 package in.aakashsinha.billingsimple.service;
 
+import in.aakashsinha.billingsimple.entity.Customer;
 import in.aakashsinha.billingsimple.model.CustomerModel;
 
 public interface CustomerService {
 
-     public boolean createCustomer(CustomerModel customerModel);
+     public Long createCustomer(CustomerModel customerModel);
 
-     public boolean checkCustomerExist(Long phoneNumber);
+     public Boolean checkCustomerExist(Long phoneNumber);
+
+     public void addBillingToCustomer(Long customerId, Long billingId);
+
+     long getCustomeIdByPhone(long phone);
+
+     Customer getCustomerById(Long id);
 }

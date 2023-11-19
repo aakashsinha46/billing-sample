@@ -14,6 +14,10 @@ import java.util.List;
 @Table(name = "customer")
 public class Customer {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private long id;
+
     @Column(name = "NAME")
     private String name;
 
@@ -24,6 +28,5 @@ public class Customer {
     private long phone;
 
     @Column(name = "BILLING_HISTORY")
-    @OneToMany(cascade = CascadeType.ALL)
     private List<Long> billingIdList;
 }

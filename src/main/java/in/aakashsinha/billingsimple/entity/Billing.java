@@ -26,7 +26,6 @@ public class Billing {
     @Column(name = "FROM_ADDRESS")
     private String fromAddress;
 
-    @Column(name = "CUSTOMER")
     @ManyToOne
     @JoinColumn(name = "CUSTOMER_ID")
     private Customer customer;
