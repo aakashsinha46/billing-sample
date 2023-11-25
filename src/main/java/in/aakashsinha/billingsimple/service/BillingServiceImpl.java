@@ -2,13 +2,13 @@ package in.aakashsinha.billingsimple.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import in.aakashsinha.billingsimple.entity.Billing;
-import in.aakashsinha.billingsimple.entity.Customer;
 import in.aakashsinha.billingsimple.model.BillingModel;
 import in.aakashsinha.billingsimple.model.CustomerModel;
 import in.aakashsinha.billingsimple.repository.BillingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
 
@@ -45,6 +45,7 @@ public class BillingServiceImpl implements BillingService {
         // adding customerId to billingModel's customer
         billingModel.getCustomer().setId(customerId);
         Billing billing = objectMapper.convertValue(billingModel, Billing.class);
+        billing.setTimestamp(Instant.now());
 
         billing = billingRepository.save(billing);
 

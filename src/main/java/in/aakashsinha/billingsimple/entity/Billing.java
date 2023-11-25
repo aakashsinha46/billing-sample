@@ -47,7 +47,7 @@ public class Billing {
     private double grandTotal;
 
     @Column(name = "TIMESTAMP")
-    private Instant timestamp = Instant.now();
+    private Instant timestamp;
 
 
 

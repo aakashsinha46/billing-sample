@@ -19,4 +19,7 @@ public class CustomerController {
     public Customer getCustomerById(@PathVariable Long id){
         return customerService.getCustomerById(id);
     }
+
+    @GetMapping("/get/phone/{phone}")
+    public Long getCustomerByPhone(@PathVariable Long phone) { return  customerService.getCustomeIdByPhone(phone);}
 }
