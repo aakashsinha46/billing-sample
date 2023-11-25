@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>in.aakashsinha</groupId>
-	<artifactId>billing-simple</artifactId>
+	<artifactId>billing-sample</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>billing-simple</name>
 	<description>Demo project for Spring Boot</description>
